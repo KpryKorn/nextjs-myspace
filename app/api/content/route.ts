@@ -27,7 +27,10 @@ const posts = [
 ];
 
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 
-export function GET() {
+export async function GET() {
+  const session = await getServerSession();
+
   return NextResponse.json(posts);
 }
